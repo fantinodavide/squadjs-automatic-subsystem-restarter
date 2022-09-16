@@ -3,11 +3,7 @@ import BasePlugin from './base-plugin.js';
 export default class AutomaticSubsystemRestarter extends BasePlugin {
     static get description() {
         return (
-            'The <code>AutomaticSubsystemRestarter</code> plugin automatically restarts SquadJS subsystems after a configured amount of time' +
-            '<ul>' +
-            '<li><code>!squadjs restartsubsystem rcon</code></li>' +
-            '<li><code>!squadjs restartsubsystem logparser</code></li>' +
-            '</ul>'
+            'The <code>AutomaticSubsystemRestarter</code> plugin automatically restarts SquadJS subsystems after a configured amount of time'
         );
     }
 
