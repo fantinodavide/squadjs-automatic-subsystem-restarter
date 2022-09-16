@@ -23,7 +23,7 @@ export default class AutomaticSubsystemRestarter extends BasePlugin {
             {
                 required: false,
                 description: "enables automatic restart of LogParser subsystem",
-                default: false
+                default: true
             },
             restartIntervalRCON:
             {
@@ -33,7 +33,7 @@ export default class AutomaticSubsystemRestarter extends BasePlugin {
             },
             restartIntervalLogParser:
             {
-                required: true,
+                required: false,
                 description: "LogParser will be restarted every x hours",
                 default: 1
             }
