@@ -48,18 +48,23 @@ export default class AutomaticSubsystemRestarter extends BasePlugin {
     }
 
     async mount() {
-        this.rcon_interval = setInterval(async () => {
-            await this.server.restartRCON();
-            this.verbose(1, "RCON restarted");
-        }, this.options.restartIntervalRCON * 60 * 1000)
-
-        this.logparser_interval = setInterval(async () => {
-            await this.server.restartRCON();
-            this.verbose(1, "LogParser restarted");
-        }, this.options.restartIntervalLogParser * 60 * 1000)
+        this.verbose(1, "Mounted");
+        if (this.options.restartRCON) {
+            this.rcon_interval = setInterval(async () => {
+                await this.server.restartRCON();
+                this.verbose(1, "RCON restarted");
+            }, this.options.restartIntervalRCON * 60 * 1000)
+        }
+        if (this.options.restartLogParser) {
+            this.logparser_interval = setInterval(async () => {
+                await this.server.restartRCON();
+                this.verbose(1, "LogParser restarted");
+            }, this.options.restartIntervalLogParser * 60 * 1000)
+        }
     }
-
+    
     async unmount() {
+        this.verbose(1, "Unmounted");
         clearInterval(this.rcon_interval);
         clearInterval(this.logparser_interval);
     }
