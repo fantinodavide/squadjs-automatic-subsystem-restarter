@@ -33,7 +33,7 @@ export default class AutomaticSubsystemRestarter extends BasePlugin {
             },
             restartIntervalLogParser:
             {
-                required: false,
+                required: true,
                 description: "LogParser will be restarted every x hours",
                 default: 1
             }
