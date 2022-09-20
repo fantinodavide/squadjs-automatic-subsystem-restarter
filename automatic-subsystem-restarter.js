@@ -53,13 +53,13 @@ export default class AutomaticSubsystemRestarter extends BasePlugin {
             this.rcon_interval = setInterval(async () => {
                 await this.server.restartRCON();
                 this.verbose(1, "RCON restarted");
-            }, this.options.restartIntervalRCON * 60 * 1000)
+            }, this.options.restartIntervalRCON * 60 * 60 * 1000)
         }
         if (this.options.restartLogParser) {
             this.logparser_interval = setInterval(async () => {
                 await this.server.restartLogParser();
                 this.verbose(1, "LogParser restarted");
-            }, this.options.restartIntervalLogParser * 60 * 1000)
+            }, this.options.restartIntervalLogParser * 60 * 60 * 1000)
         }
     }
     
